@@ -3,6 +3,7 @@ import "firebase/compat/auth"
 import "firebase/compat/firestore"
 import "firebase/compat/storage"
 
+// Initialize Firebase app with specific configurations
 const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -13,6 +14,7 @@ const app = firebase.initializeApp({
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 })
 
+// Firestore Database Instance and Information Access
 const firestore = app.firestore()
 export const database = {
     folders: firestore.collection("folders"),
@@ -22,6 +24,10 @@ export const database = {
     },
     getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp
 }
+
+// Firebase Storage and Authentication Instances
 export const storage = app.storage()
 export const auth = app.auth()
+
+// Export Firebase app instance
 export default app
