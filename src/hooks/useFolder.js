@@ -1,7 +1,9 @@
+// Import hooks and contexts
 import { useEffect, useReducer } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { database } from "../firebase"
 
+// Define folder actions
 const ACTIONS = {
     SELECT_FOLDER: 'select-folder',
     UPDATE_FOLDER: 'update-folder',
@@ -9,8 +11,10 @@ const ACTIONS = {
     SET_CHILD_FILES: "set-child-files"
 }
 
+// Create root
 export const ROOT_FOLDER = { name: 'Root', id: null, path: [] }
 
+// Update folder states 
 function reducer(state, { type, payload }) {
     switch (type) {
         case ACTIONS.SELECT_FOLDER:
@@ -39,6 +43,8 @@ function reducer(state, { type, payload }) {
             return state
     }
 }
+
+// Hook used to handle folder states
 export function useFolder(folderId = null, folder = null) {
     const [state, dispatch] = useReducer(reducer, {
         folderId,
@@ -53,6 +59,7 @@ export function useFolder(folderId = null, folder = null) {
         dispatch({ type: ACTIONS.SELECT_FOLDER, payload: { folderId, folder }})
     }, [folderId, folder])
 
+    // Extract folder details from database
     useEffect(() => {
         if (folderId == null) {
             return dispatch({
@@ -78,6 +85,7 @@ export function useFolder(folderId = null, folder = null) {
             })
     }, [folderId])
 
+    // Handle changes in child folders of current folder
     useEffect(() => {
         return database.folders
         .where("parentId", "==", folderId)
@@ -91,6 +99,7 @@ export function useFolder(folderId = null, folder = null) {
         })
     }, [folderId, currentUser])
 
+    // Handle chanes in child files of current folder
     useEffect(() => {
         return database.files
         .where("folderId", "==", folderId)
