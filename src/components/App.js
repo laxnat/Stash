@@ -10,10 +10,14 @@ import ForgotPassword from "./authentication/ForgotPassword";
 import UpdateProfile from "./authentication/UpdateProfile";
 import Dashboard from "./files/Dashboard";
 
+// Main App
 function App() {
   return (
+    // Router Component for Navigation
     <Router>
+      {/* AuthProvider for Authentication Context */}
       <AuthProvider>
+        {/* Routes Component for switching between app routes */}
         <Routes>
           {/* File Routes */}
           <Route path ="/" element={<PrivateRoute />}>
