@@ -2,13 +2,17 @@ import React, { useContext, useState, useEffect } from 'react'
 import "firebase/auth"
 import { auth } from '../firebase'
 
+//context for authentication
 const AuthContext = React.createContext()
 
 export function useAuth() {
     return useContext(AuthContext)
 }
 
+//Authentication provider component that has
+//sign up, login logout, reset password and update email, and password functionalities
 export function AuthProvider({ children }) {
+    //State holding current user and loading status
     const [currentUser, setCurrentUser] = useState()
     const [loading, setLoading] = useState(true)
 
@@ -36,6 +40,7 @@ export function AuthProvider({ children }) {
         return currentUser.updatePassword(password)
     }
 
+    // The hook for handling authentication state changes
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
@@ -44,7 +49,7 @@ export function AuthProvider({ children }) {
 
         return unsubscribe
     }, [])
-
+    //current user information from authentication context
     const value = {
         currentUser,
         login,
@@ -54,7 +59,7 @@ export function AuthProvider({ children }) {
         updateEmail,
         updatePassword
     }
-
+    // provides the authentication context
   return (
     <AuthContext.Provider value={value}>
         {!loading && children}
