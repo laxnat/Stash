@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Getting Started with <Stash>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+If Node.js and Node Package Manager is not installed, then go to https://nodejs.org/ and download the installer for your device.
+Run the installer and follow the instructions to install Node.js.
 
-In the project directory, you can run:
+(This project was developed on MacOS so some commands may be different.)
+In your terminal, run the command 'npm install -g npx'.
+Then go to Visual Studio Code and click 'Clone Git Repository' entering the github repo link.
 
-### `npm start`
+Verify the project looks the same way. 
+A .env.local file must also be created within the main section (where this README file is located at).
+This will include the local environment variables to correctly connect the application to our Firebase console.
+Once this file is created, copy and past the text below and save.
+'REACT_APP_FIREBASE_API_KEY=AIzaSyCy2aJFK71nYQY731TZMQAYFgITehTLuK8
+REACT_APP_FIREBASE_AUTH_DOMAIN=cecs327project2-879de.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=cecs327project2-879de
+REACT_APP_FIREBASE_STORAGE_BUCKET=cecs327project2-879de.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=990352202883
+REACT_APP_FIREBASE_APP_ID=1:990352202883:web:937ce0761cf3389b878fb6
+REACT_APP_FIREBASE_MEASUREMENT_ID=G-JNMY8G5DQS'
+
+## Scripts and Installations
+
+In the terminal project directory, you can run these following commands:
+'npm i firebase'
+'npm i bootstrap react-bootstrap' (Should be the newest version)
+'npm i react-router-dom' (Should be the newest version)
+'npm i --save @fortawesome/fontawesome-svg-core'
+'npm install --save @fortawesome/free-solid-svg-icons'
+'npm install --save @fortawesome/react-fontawesome'
+'npm i uuid'
+
+## Running the project
+
+### To run the project, in the terminal of the project directory, run the command `npm start`.
+
+When signing in with a new user, an error message will pop up.
+Simply close it and continue because this is a bug, so the application will function completely fine.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
